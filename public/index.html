@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Face Swap HD - Foto ke Video</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-magic"></i> AI Face Swap HD</h1>
+            <p>Swap wajah dari foto ke video dengan kualitas HD profesional</p>
+        </header>
+
+        <div class="upload-area">
+            <div class="upload-zone" id="faceUpload">
+                <i class="fas fa-user"></i>
+                <p>Pilih Foto Wajah Sumber</p>
+                <input type="file" id="faceInput" accept="image/*" capture="environment">
+            </div>
+
+            <div class="upload-zone video-zone" id="videoUpload">
+                <i class="fas fa-video"></i>
+                <p>Pilih Video Target</p>
+                <input type="file" id="videoInput" accept="video/*">
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="swap-btn" id="swapBtn" disabled>
+                <i class="fas fa-exchange-alt"></i>
+                <span>SWAP FACE</span>
+            </button>
+            <div class="progress-container" id="progressContainer" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">Memproses...</p>
+            </div>
+        </div>
+
+        <div class="preview-area">
+            <div class="preview-grid">
+                <div class="preview-item">
+                    <h3>Foto Sumber</h3>
+                    <canvas id="facePreview" class="preview-canvas"></canvas>
+                </div>
+                <div class="preview-item">
+                    <h3>Video Target</h3>
+                    <video id="videoPreview" class="preview-video" controls></video>
+                </div>
+                <div class="preview-item result-preview">
+                    <h3>Hasil Face Swap</h3>
+                    <video id="resultPreview" class="preview-video result-video" controls style="display: none;"></video>
+                    <div id="resultPlaceholder" class="placeholder">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Hasil akan muncul di sini</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="download-section" id="downloadSection" style="display: none;">
+            <button class="download-btn" id="downloadBtn">
+                <i class="fas fa-download"></i>
+                Download Video HD
+            </button>
+        </div>
+
+        <footer>
+            <p>Powered by AI Face Swap Technology | Max Durasi: 60 detik | HD 1080p</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection@0.4/face_detection.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/face_mesh.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
